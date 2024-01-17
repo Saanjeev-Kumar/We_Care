@@ -1,0 +1,49 @@
+.example-full-width {
+  width: 500px;
+}
+@media screen and (min-width: 350px) and (max-width: 900px) {
+  .example-full-width {
+    width: 300px;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card-header {
+  padding: 30px 150px;
+  background-color: #9fc131ff;
+}
+h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0px;
+  padding-left: 90px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.card-body {
+  padding: 70px 150px;
+}
+
+button {
+  border: 1px solid transparent;
+  text-align: center;
+  letter-spacing: 1px;
+  /* margin-left: 140px; */
+  padding: 2px 25px;
+  border-radius: 20px;
+  background-color: #9fc131ff;
+}
+
+button:hover {
+  background-color: #758e24;
+  border: 1px solid transparent;
+}
+
+.form-group {
+  padding: 5px;
+}

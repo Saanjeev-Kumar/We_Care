@@ -1,0 +1,39 @@
+img{
+  width: 70px;
+  height: 75px;
+}
+mat-radio-button{
+  padding-left: 10px;
+}
+.body{
+ text-align: center;
+}
+#select{
+  width: 600px;
+}
+.row{
+  padding-top: 50px;
+
+}
+mat-error{
+  font-size:14px;
+}
+@media screen and (min-width: 300px) and (max-width: 1000px){
+  #select{
+    width: 400px;
+  }
+}
+.card{
+  box-shadow: 	0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  				0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-header{
+  background-color: #ff9a8d;
+}
+.card-body{
+  background-color: rgba(53, 74, 74, 0.3);
+}
+#msgBody{
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,24 @@
+body {
+  margin-top: 0px;
+  background-color: #eee;
+}
+
+.faq-nav {
+  flex-direction: column;
+  margin: 0 0 32px;
+  border-radius: 2px;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 5px rgba(85, 85, 85, 0.15);
+}
+
+.card {
+  border-radius: 0;
+}
+
+p {
+  text-align: center;
+}
+
+button {
+  text-align: center;
+}

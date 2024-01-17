@@ -1,0 +1,14 @@
+#carouselExampleCaptions{
+    margin-top: 10px;
+    background-color: #000;
+}
+
+img{
+    background-position: center;
+    background-size: cover;
+    opacity: 0.8;
+} 
+p{
+    font-family: Helvetica;
+    font-size: 38px;
+}

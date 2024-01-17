@@ -1,0 +1,103 @@
+<div class="flexbox">
+
+  <div class="dashboardDiv">
+    
+    <div class="selectDiv">
+      
+      <div class="stateSelectDiv">
+        <mat-form-field appearance="outline" class="dropdown" color="primary">
+          <mat-label>Choose State</mat-label>
+          <mat-select [(ngModel)]="selectedState" name="state">
+            <mat-option selected *ngFor="let state of states" [value]="state" (click)="getDistricts(); getDataByState();">
+              {{state}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      
+      <div class="districtSelectDiv">
+        <mat-form-field appearance="outline" class="dropdown" color="primary">
+          <mat-label>Choose District</mat-label>
+          <mat-select [(ngModel)]="selectedDistrict" name="district">
+            <mat-option selected *ngFor="let district of districts" [value]="district" (click)="getDistrictCovidData()">
+              {{district}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    
+    </div>
+    
+    <div *ngIf="selectedState" class="card">
+      <h4 class="text-center">State Data</h4>
+      
+      <div class="card-container">
+        
+        <div class="data">
+          <p style="color: black; text-align: center; font-weight: 500; ">
+            <small style="color: grey;">Total Active Cases</small><br>
+            {{stateActive}}
+          </p>
+          <p style="color: black; text-align: center; font-weight: 500; ">
+            <small style="color: grey;">Total Confirmed Cases</small> <br>
+            {{stateConfirmed}}
+          </p>
+        </div>
+        
+        <div class="data">
+          <p style="color: green; text-align: center; font-weight: 500;">
+            <small style="color: grey;">Total Recovered</small> <br>
+            {{stateRecovered}}
+          </p>
+          <p style="color: red; text-align: center; font-weight: 500;">
+            <small style="color: grey;">Total Deaths</small> <br>
+            {{stateDeaths}}
+          </p>
+        </div>
+      
+      </div>
+    
+    </div>
+    
+    <div class="card">
+      <h4 class="text-center">District Data</h4>
+      
+      <div *ngIf="selectedDistrict" class="card-container">
+        
+        <div class="data">
+          <p style="color: black; text-align: center; font-weight: 500; ">
+            <small style="color: grey;">Total Active Cases</small><br>
+            {{selectDistrict.active}}
+          </p>
+          <p style="color: black; text-align: center; font-weight: 500; ">
+            <small style="color: grey;">Total Confirmed Cases</small> <br>
+            {{selectDistrict.confirmed}}
+          </p>
+        </div>
+        
+        <div class="data">
+          <p style="color: green; text-align: center; font-weight: 500;">
+            <small style="color: grey;">Total Recovered</small> <br>
+            {{selectDistrict.recovered}}
+          </p>
+          <p style="color: red; text-align: center; font-weight: 500;">
+            <small style="color: grey;">Total Deaths</small> <br>
+            {{selectDistrict.deceased}}
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  
+  <div class="chartDiv">
+    <app-chart [parentData]="selectedState"></app-chart>
+  </div>
+  
+</div>
+
+
+
+<!-- <button (click)="subscribeToNotification()">Subscribe</button> -->

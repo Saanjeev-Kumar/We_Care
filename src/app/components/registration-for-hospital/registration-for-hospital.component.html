@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Registration Form for Hospital Login</h3>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm">
+          <div>
+            <mat-form-field id="formField" appearance="outline" class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input type="email" name="username" matInput [formControl]="username" placeholder="Ex. abc@example.com" />
+              <mat-error *ngIf="username.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="
+                  username.hasError('email')
+                ">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field id="formField" appearance="outline" class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input matInput [formControl]="password" name="password" placeholder="Enter password..." />
+              <mat-error *ngIf="password.hasError('required')">
+                Password must be <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="password.hasError('minlength')">
+                password should be minimum 6 chararacter
+              </mat-error>
+              <mat-error *ngIf="password.hasError('pattern')">
+                Password should be 1 lower case,1 capital leter,1 special character.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field id="formField" appearance="outline" class="example-full-width">
+              <mat-label>ConfirmPassword</mat-label>
+              <input matInput [formControl]="confirmPassword" name="confirmPassword"
+                placeholder="Enter Confirm password..." />
+              <!-- <mat-error *ngIf="confirmPassword.hasError('required')">
+                Confirm Password must be <strong>required</strong>
+              </mat-error> -->
+              <mat-error *ngIf="confirmPassword.hasError('passwordNotMatch')">
+                Confirm Password is not matched. Password should be same
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field id="formField" appearance="outline" class="example-full-width">
+              <mat-label>Hospital Name</mat-label>
+              <input matInput [formControl]="hospitalName" placeholder="Enter hospital Name..." />
+              <mat-error *ngIf="hospitalName.hasError('required')">
+                Hospital Name must be <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="hospitalName.hasError('pattern')">
+                Hospital Name should not contain any digits and special character
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field id="formField" appearance="outline">
+              <mat-label>Select State</mat-label>
+              <mat-select [formControl]="state">
+                <mat-option *ngFor="let state of states" (click)="getDistricts(this.registerForm.value.state)"
+                  [value]="state">{{ state }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field id="formField" appearance="outline">
+              <mat-label>Select District</mat-label>
+              <mat-select [formControl]="district">
+                <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field id="formField" appearance="outline" class="example-full-width">
+              <mat-label>Postal Code</mat-label>
+              <input matInput [formControl]="postalCode" minlength="6" maxlength="6" placeholder="Ex. XXXXXX" />
+              <mat-error *ngIf="postalCode.hasError('pattern')">
+                Postal code should be digit
+              </mat-error>
+              <mat-error *ngIf="postalCode.hasError('required')">
+                Postal code should be required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group text-center">
+            <div>
+              <p id="successMessage" style="display: none; color: green;">Hospital Details Succesfully Registered</p>
+              <button mat-raised-button color="primary" id="submit" (click)="addHospitalDetail()" [disabled]="registerForm.invalid">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+        <div>
+          <button mat-raised-button color="warn" id="exit" (click)="logout()">
+            Exit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

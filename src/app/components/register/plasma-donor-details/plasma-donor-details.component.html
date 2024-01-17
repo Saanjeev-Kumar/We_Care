@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <p>Donor Details</p>
+      </div>
+      <div class="card-body">
+        <form autocomplete="off" [formGroup]="donorDetails">
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>First name</mat-label>
+              <input matInput [formControl]="firstName">
+              <mat-error *ngIf="firstName.hasError('required')">
+                First Name is <strong>required*</strong>.
+              </mat-error>
+              <mat-error *ngIf="firstName.hasError('pattern')">
+                Please enter valid First Name.
+              </mat-error>
+              <mat-error *ngIf="firstName.hasError('minlength')">
+                First Name should be of more than one letter.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Last name</mat-label>
+              <input matInput [formControl]="lastName">
+              <mat-error *ngIf="lastName.hasError('required')">
+                Last Name is <strong>required*</strong>.
+              </mat-error>
+              <mat-error *ngIf="lastName.hasError('pattern')">
+                Please enter valid Last Name.
+              </mat-error>
+              <mat-error *ngIf="lastName.hasError('minlength')">
+                Last Name should be of more than one letter.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Select Blood Group</mat-label>
+              <mat-select [formControl]="blood" name="blood">
+                <mat-option *ngFor="let blood of bloodList" [value]="blood">
+                  {{blood}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Select state</mat-label>
+              <mat-select [formControl]="state" name="state">
+                <mat-option *ngFor="let state of states" [value]="state"
+                  (click)="getDistricts(this.donorDetails.value.state)">
+                  {{state}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Select city</mat-label>
+              <mat-select [formControl]="district" name="district">
+                <mat-option *ngFor="let district of districts" [value]="district"
+                  (click)="getByDistrict(this.donorDetails.value.district)">
+                  {{ district }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Postal Code</mat-label>
+              <input matInput [formControl]="pincode" maxlength="6" placeholder="Ex. 440022">
+              <mat-error *ngIf="pincode.hasError('pattern')">
+                Pincode only contains numbers.
+              </mat-error>
+              <mat-error *ngIf="pincode.hasError('minlength')">
+                Enter valid pincode.
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <button mat-raised-button color="primary" (click)="showHospitalListFlag();"
+            [disabled]='donorDetails.invalid'>Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="card" id="hospitalNamesCard" style="display: none;">
+      <div class="card-header">
+        <h3>Nearby hospitals in your districts</h3>
+      </div>
+      <div class="card-body">
+        <div class="form-group" id="hospitalsNotFoundMsg" *ngIf="bool">
+          <strong>No hospitals found for the entered details.</strong>
+        </div>
+        <div id="hospitalNames" *ngIf="bool2">
+          <form>
+          <mat-form-field class="example-full-width" *ngIf="bool2" appearance="outline">
+            <mat-label>Select Your Hospital</mat-label>
+            <mat-select>
+              <mat-option #hospitalName *ngFor="let hospital of hospitalList" [value]="hospital" (click)="addHospitalName(hospitalName.value)">
+                {{ hospital }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+           <button mat-raised-button color="primary" (click)="addDetails()" >Register</button>
+          </form> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

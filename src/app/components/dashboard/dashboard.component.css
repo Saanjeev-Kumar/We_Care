@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500&display=swap');
+/* *{
+    margin: 10px;
+    padding: 0;
+    font-family: 'Poppins', sans-serif, 'Open Sans', 'Helvetica';
+}
+
+
+.container{
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.data{
+  font-weight: 500;
+  margin-right: 20px;
+  font-size: medium;
+}
+
+.dropdown{
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  width: 80px;
+  font-size: medium;
+  font-weight: 200;
+
+}
+
+.card{
+  margin-left: 20px;
+  padding: 10px 130px 10px 130px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media screen and (min-width:320px) and (max-width:768px){
+  .container{
+  padding:0;
+
+  }
+
+}
+
+@media screen and (max-width:300px){
+  .card{
+  padding: 0;
+  }
+  .dropdown{
+    width: 200px;
+    flex-direction: column;
+  }
+} */
+/*https://www.youtube.com/watch?v=fYq5PXgSsbE*/
+
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
+.flexbox
+{
+  display: flex ;
+  flex-direction: column;
+  width: 100%;
+  margin: 50px 40px 40px 0px;
+  
+  padding: 0px;
+}
+
+.dashboardDiv{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+
+.card{
+  width: 750px;
+  height: 260px;
+  margin: 0px;
+  padding: 10px 100px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.chartDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown{
+  width: 300px;
+}
+.reports{
+  margin:10px;
+}
+.selectDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 10px;
+}
+/* .card-container{
+  display: flex;
+} */
+
+@media screen and (min-width : 320px)
+{
+  .container{
+  
+    flex-direction: column;
+  }
+  .reports{
+   
+    flex-direction: column;
+  }
+  
+}

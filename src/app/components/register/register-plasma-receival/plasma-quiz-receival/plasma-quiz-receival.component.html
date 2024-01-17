@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="text center" style="text-align: center">User Details form</h1>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="registerForm">
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Enter Full Name</mat-label>
+              <input matInput [formControl]="username" />
+            </mat-form-field>
+            <div [hidden]="username.valid || username.untouched">
+              <small style="color: red" [hidden]="!username.hasError('required')">Name is required</small>
+              <small style="color: red" [hidden]="!username.hasError('minlength')">should be more than 6</small>
+              <small style="color: red" [hidden]="!username.hasError('pattern')">no special characters or
+                numbers</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Enter Your Age</mat-label>
+              <input matInput [formControl]="age" />
+            </mat-form-field>
+            <div [hidden]="age.valid || age.untouched">
+              <small style="color: red" [hidden]="!age.hasError('required')">age is required</small>
+              <small style="color: red" [hidden]="!age.hasError('pattern')">age must be in number</small>
+
+              <small style="color: red" [hidden]="!age.hasError('min')">should be more than 18</small>
+              <small style="color: red" [hidden]="!age.hasError('max')">should be less than65</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Select blood type</mat-label>
+              <mat-select [formControl]="blood">
+                <mat-option *ngFor="let blood of bloodList" (click)="getDistricts(this.registerForm.value.blood)"
+                  [value]="blood">{{ blood }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-radio-group [formControl]="gender" cdaria-label="Select an option">
+              <mat-radio-button value="male">Male</mat-radio-button>
+              <mat-radio-button value="female">Female</mat-radio-button>
+              <mat-radio-button value="others">Others</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Select State</mat-label>
+              <mat-select [formControl]="state">
+                <mat-option *ngFor="let state of states" (click)="getDistricts(this.registerForm.value.state)"
+                  [value]="state">{{ state }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Select District</mat-label>
+              <mat-select [formControl]="district">
+                <mat-option *ngFor="let district of districts" [value]="district">{{ district }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Enter pincode</mat-label>
+              <input matInput [formControl]="pincode" />
+            </mat-form-field>
+            <div [hidden]="pincode.valid || pincode.untouched">
+              <small style="color: red" [hidden]="!pincode.hasError('required')">
+                pincode is required</small>
+              <small style="color: red" [hidden]="!pincode.hasError('pattern')">pincode must be in number</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Enter hospital Name</mat-label>
+              <input matInput [formControl]="hospital" />
+            </mat-form-field>
+            <div [hidden]="hospital.valid || hospital.untouched">
+              <small style="color: red" [hidden]="!hospital.hasError('required')">
+                hospital Name is required</small>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" [disabled]="registerForm.invalid"
+            (click)="onRegisterUserDetails(); getPlasmaDonorDetails();">
+            register me
+          </button>
+          <!-- <button class="btn btn-primary" (click)="getPlasmaDonorDetails()">
+            get details
+          </button> -->
+
+        </form>
+      </div>
+    </div>
+
+    <div class="card" id="result" style="margin-top: 50px; display: none;">
+      <div class="card-header">
+        <h3>PlasmaDonors matched List based on Location</h3>
+      </div>
+      <div class="card-body">
+        <div *ngIf="bool1"><strong>No details matched</strong></div>
+        <div *ngIf="bool2">
+          <div *ngFor=" let i of matchedDonor">
+            <p>Name : {{i.firstName}} {{i.lastName}}</p>
+            <p>PhoneNumber : +{{i.phoneNumber}}</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" (click)="nextPage()">
+        NEXT
+      </button>
+    </div>
+  </div>
+</div>

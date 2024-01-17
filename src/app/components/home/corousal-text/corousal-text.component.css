@@ -1,0 +1,27 @@
+.carousel {
+  margin-top: 50px;
+}
+.carousel-inner {
+  height: 100px;
+}
+.carousel-caption {
+  color: whitesmoke;
+  top: 50%;
+}
+img{
+  height: 50px;
+  width: 50px;
+}
+#myImage{
+  display: flex;
+  flex-direction: column;
+}
+
+#carouselExampleControls {
+  background-color: black;
+  height: 120px;
+}
+
+#py-3 {
+  background-color: #eee;
+}

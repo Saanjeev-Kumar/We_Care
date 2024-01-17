@@ -1,0 +1,25 @@
+<div class="analytics">
+  <div class="monthSelect">
+    <label for="month">Month</label>
+    <select class="form-select" aria-placeholder="Month" [(ngModel)]="historicalMonth" name="month" id="month">
+    <option  *ngFor="let month of months" [value]="month">{{month}}</option>
+  </select>
+  </div>
+  <div class="yearSelect">
+    <label for="year">Year</label>
+    <select class="form-select" (click)="getHistoricalData()" [(ngModel)]="historicalYear" name="year" id="year">
+    <option  *ngFor="let year of years" [value]="year">{{year}}</option>
+  </select>
+  </div>
+</div>
+<div *ngIf="parentData" id="chartDiv">
+  <canvas width="320" height="100%" #myChart id="myChart">{{ myChart }}</canvas>
+</div>
+<div class="container">
+  <div id="ChartDiv">
+    <canvas height="450" width="450" #myPieChart id="myPieChart">{{ myPieChart }}</canvas>
+  </div>
+  <div id="ChartDiv">
+    <canvas height="450" width="450" #guageChart id="guageChart">{{ guageChart }}</canvas>
+  </div>
+</div>

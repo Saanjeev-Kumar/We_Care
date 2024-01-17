@@ -1,0 +1,67 @@
+<!-- <div class="container">
+<h4>Select Which Department Login</h4>
+<mat-form-field >
+  <mat-label> Select Login  </mat-label>
+  <mat-select [(ngModel)]="selectedOption">
+    <mat-option value="Admin-login"> Admin-login </mat-option>
+    <mat-option value="Hospital-login"> Hospital-login </mat-option>
+  </mat-select>
+</mat-form-field>
+<hr>
+</div> -->
+
+<div class="container">
+  <h4><strong>Select Which Department Login</strong></h4>
+  <mat-button-toggle-group  [(ngModel)]="selectedOption" name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="Admin-login">Admin-login </mat-button-toggle>
+    <mat-button-toggle  value="Hospital-login">Hospital-login </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<mat-card>
+  <mat-card-content>
+    <div class="header">
+      <P>Sign Into Your Deartment </P>
+    </div>
+    <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput placeholder="Enter email address" required [(ngModel)]="username" />
+          <mat-error *ngIf="!loginForm.controls['email'].valid">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input [(ngModel)]="password" formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
+          <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>
+              {{hide ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+      </button>
+
+
+      <mat-error *ngIf="!loginForm.controls['password'].valid">
+          Password is required
+        </mat-error>
+
+      </mat-form-field><br>
+      <small style="color:red" *ngIf="this.matchPassword === true">
+        password is incorrect<br>
+      </small>
+
+      </div>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button  *ngIf="selectedOption==='Hospital-login' " (click)="hospitalLogin(); navigate(username,password)"  type="button" id="button" class="btn ">Hospital  Login </button>
+        <button *ngIf="selectedOption==='Admin-login' " (click)="adminLogin(); navigate(username,password)"  type="button" id="button" class="btn ">Admin Login</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<router-outlet></router-outlet>

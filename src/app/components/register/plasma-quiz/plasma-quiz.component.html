@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4>{{ quizzes[currentQuiz].question }}</h4>
+        </div>
+        <div class="card-body">
+            <ul class="list-group" *ngFor = "let quiz of quizzes[currentQuiz].answer">
+                <label>
+                    <li class = "list-group-item">
+                        <input type="radio" name = "options" (change)="onAnswer(quiz.correct)" [disabled]="answerSelected">
+                        {{ quiz.option }}
+                    </li>
+                </label>
+            </ul>
+        </div>
+    </div>
+</div>

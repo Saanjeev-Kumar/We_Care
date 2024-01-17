@@ -1,0 +1,65 @@
+.container {
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.mat-button-toggle {
+  /* background-color: #bcc9e4; */
+  background-color: #0d1137;
+  color: #ffffff;
+}
+
+.mat-button-toggle:hover {
+  background-color: transparent;
+  color: #1100ff !important;
+}
+
+.mat-button-toggle-checked {
+  background-color: #f57e7e;
+  color: #0b0c0b !important;
+}
+
+h4 {
+  color: rgb(24, 166, 223);
+}
+mat-card {
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
+  max-height: 600px;
+}
+
+.header {
+  text-align: center;
+}
+.full-width {
+  width: 80%;
+}
+
+.button-row {
+  padding-top: 5px;
+}
+
+.button-row a {
+  margin-right: 8px;
+  text-align: center;
+}
+
+#button {
+  background-color: #f57e7e;
+}
+
+.forget-password {
+  padding-left: 0px;
+}
+
+.emailInput {
+  padding-top: 10px;
+}
+
+.contentBody {
+  padding: 60px 1rem;
+  background: #1b6ca8;
+  display: block;
+}

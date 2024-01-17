@@ -1,0 +1,152 @@
+<div class="d-flex" id="btn-container">
+  <div>
+    <button id="btnStyle" (click)="registerForHospital() " class="btn btn-secondary">Registration for hospital</button>
+  </div>
+  <div >
+    <button id="btnStyle" (click)="adminloginforHospital()" class="btn btn-secondary"> hospitals Details</button>
+  </div>
+  <div>
+    <button id="btnStyle" type="button" class="btn btn-danger" (click)="logout(); logoutAdmin()">Logout</button>
+  </div >
+</div>
+<br><br><br>
+<div class="container text-center" >
+  <h4><strong>Select Details which you want</strong></h4>
+  <mat-button-toggle-group  name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle [routerLink]="'donor-details'" value="plasmaDonationDetails"> plasmaDonationDetails
+    </mat-button-toggle>
+    <mat-button-toggle  routerLink='plasma-receiver' value="plasmaReceiverDetails">plasmaReceiverDetails </mat-button-toggle>
+    <mat-button-toggle routerLink='vaccination-registration' value="vaccinationregistrationDetails">vaccine-registration-Details </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<div class="container">
+  <div *ngIf="selectedOption === 'plasmaDonationDetails' | paginate: {
+    id: 'listing_donation',
+    itemsPerPage: 10, currentPage: page, totalItems: totalRecords }" class="card">
+    <div  *ngIf="plasmaDonorData" class="card-body">
+      <li *ngFor="let plasmaData of plasmaDonorData" class="list-group-item">
+        <div class="details">
+          <div>
+            FirstName : {{ plasmaData.firstName }} {{plasmaData.lastName}} <br>
+            Phone :{{ plasmaData.phoneNumber }} <br>
+          </div>
+          <div>
+            State : {{ plasmaData.state }} <br>
+            District : {{ plasmaData.district }} <br>
+            Pincode : {{ plasmaData.pincode }}
+          </div>
+        </div>
+      </li>
+      <pagination-controls style="float: right; margin: 10px;" id="listing_donation" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+
+
+  <div *ngIf="selectedOption === 'plasmaReceiverDetails'" class="card">
+    <div  *ngIf="plasmaReceiverData" class="card-body">
+      <li *ngFor="let receiverData of plasmaReceiverData | paginate: {
+        id: 'listing',
+        itemsPerPage: 10, currentPage: page, totalItems: totalRecords }" class="list-group-item">
+
+        <div class="details">
+          <div>
+            Name : {{ receiverData.username }} <br>
+            Phone :{{ receiverData.phoneNumber }} <br>
+            Age : {{ receiverData.age }} <br>
+          </div>
+          <div>
+            blood : {{ receiverData.blood }} <br>
+            gender : {{ receiverData.gender }} <br>
+            hospital : {{ receiverData.hospital }} <br>
+          </div>
+          <div>
+            State : {{ receiverData.state }} <br>
+            district : {{ receiverData.district }} <br>
+            Postalcode : {{ receiverData.postalcode }}
+          </div>
+        </div>
+      </li>
+      <pagination-controls style="float: right; margin: 10px;" id="listing" maxSize="10" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+
+  <div *ngIf="selectedOption === 'vaccinationregistrationDetails'" class="card">
+    <div  *ngIf="vaccineRegistrationData" class="card-body">
+
+
+      <li *ngFor="let registrationData of vaccineRegistrationData | paginate: {
+        id: 'listing_pagination',
+        itemsPerPage: 10, currentPage: page, totalItems: totalRecords }" class="list-group-item">
+        <div class="details">
+          <div>
+            Name : {{ registrationData.username }} <br>
+            Phone :{{ registrationData.phoneNumber }} <br>
+            gender : {{ registrationData.gender }} <br>
+          </div>
+          <div>
+            document : {{ registrationData.document }} <br>
+            documentIdNumber : {{ registrationData.documentIdNumber }} <br>
+            yearofBirth : {{ registrationData.yearofBirth }} <br>
+          </div>
+          <div>
+            State : {{ registrationData.state }} <br>
+            district : {{ registrationData.district }} <br>
+            Town : {{ registrationData.town }} <br>
+            Postalcode : {{ registrationData.postalCode }}
+          </div>
+        </div>
+      </li>
+      <pagination-controls style="float: right; margin: 10px;" id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+    </div>
+  </div>
+
+
+  <br />
+  <button class="sbtn" type="button" id="button" class="btn btn-primary">
+    Plasma receiver</button><br />
+  <button class="tbtn" type="button" id="button" class="btn btn-primary">
+    vaccination
+  </button>
+</div>
+
+<br />
+<button (click)="registerForHospital()" class="btn btn-secondary">Registration for hospital</button>
+<button (click)="adminloginforHospital()" class="btn btn-secondary">Admin login for hospital</button>
+
+<router-outlet></router-outlet>
+
+
+ -->
+
+
+
+
+<!--
+<div class="card-body">
+        <div *ngFor="let plasmaData of plasmaDonorData">
+          {{ plasmaData.firstName }} {{plasmaData.lastName}} <br>
+          {{ plasmaData.phoneNumber }}
+          {{ plasmaData.state }}
+          {{ plasmaData.district }}
+          {{ plasmaData.pincode }}
+        </div>
+      </div> -->

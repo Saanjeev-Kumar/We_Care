@@ -1,0 +1,19 @@
+.btn1 :hover{
+  background-color: rgb(9, 56, 56);
+}
+.search{
+  display: flex;
+  justify-content: flex-end;
+  margin:30px;
+  margin-top: 20px;
+}
+#btnGrp{
+  display: flex;
+}
+#secBtn{
+  width:150px;
+}
+.row{
+  margin-top: 15px;
+  justify-content: flex-end;
+}

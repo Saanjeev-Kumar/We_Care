@@ -1,0 +1,128 @@
+<div class="row">
+  <div class="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <div class="card">
+      <div style="text-align: center;" class="card-header">
+        <img src="../../../../../assets/images/info.png" alt="">
+        <h2 class="text-center">Vaccination Registration Form</h2>
+      </div>
+      <div class="body">
+        <div class="card-body">
+          <form [formGroup]="registrationForm">
+            <div>
+              <mat-form-field id="select" appearance="outline">
+                <mat-label>Select Document</mat-label>
+                <mat-select name="document" formControlName="document">
+                  <mat-option *ngFor="let doc of documents" [value]="doc">
+                    {{doc}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="document.hasError('required')">Please choose an document</mat-error>
+              </mat-form-field>
+            </div><br>
+            <div>
+              <mat-form-field id="select" appearance="outline">
+                <mat-label>Enter Document Id</mat-label>
+                <input name="documentId" matInput placeholder="xxxx xxxx xxxx xxxx" formControlName="documentIdNumber">
+                <mat-error *ngIf="documentIdNumber.hasError('required')">Enter Document ID</mat-error>
+                <mat-error *ngIf="documentIdNumber.hasError('maxlength')">Document Id Should not Exceed 12 characters</mat-error>
+              </mat-form-field>
+            </div><br>
+            <div>
+              <mat-form-field id="select" appearance="outline">
+                <mat-label>Enter Full Name</mat-label>
+                <input name="username" matInput formControlName="username">
+                <mat-error *ngIf="username.hasError('required')">Name is required</mat-error>
+                <mat-error *ngIf="username.hasError('minlength')">Atleast 3 letters</mat-error>
+                <mat-error *ngIf="username.hasError('pattern')">Enter Full-Middle-Last Name</mat-error>
+              </mat-form-field>
+            </div><br>
+            <div>
+              <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-label>Please select your gender</mat-label><br><br>
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female </mat-radio-button>
+                <mat-radio-button value="other">Other </mat-radio-button>
+              </mat-radio-group>
+            </div><br>
+            <div>
+              <mat-form-field id="select" appearance="outline">
+                <mat-label>Year Of Birth</mat-label>
+                <input name="yearOfBirth" minlength="4" maxlength="4" matInput formControlName="yearOfBirth">
+                <mat-error *ngIf="yearOfBirth.hasError('required')">Year of Birth is Required</mat-error>
+                <mat-error *ngIf="yearOfBirth.hasError('minlength')">Year In the Format: 2020</mat-error>
+              </mat-form-field>
+            </div><br>
+            <div>
+              <mat-form-field id="select" appearance="outline">
+                <mat-label>Select State</mat-label>
+                <mat-select name="state" formControlName="state">
+                  <mat-option *ngFor="let state of states" (click)="getDistricts(this.registrationForm.value.state)"
+                    [value]="state">{{state}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div><br>
+            <div>
+              <mat-form-field id="select" appearance="outline">
+                <mat-label>Select District</mat-label>
+                <mat-select name="district" formControlName="district">
+                  <mat-option *ngFor="let district of districts"
+                    (click)="getByDistrict(this.registrationForm.value.district)" [value]="district">{{district}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div><br>
+            <div>
+              <div>
+                <mat-form-field id="select" appearance="outline" class="example-full-width">
+                  <mat-label>Postal Code</mat-label>
+                  <input matInput formControlName="postalCode" minlength="6" maxlength="6" placeholder="Ex. XXXXXX">
+                </mat-form-field>
+              </div>
+            </div><br>
+            <div class=" text-center">
+              <strong id="successMsg" style="color: green; display: none;">Successfully Registered For
+                Vaccination</strong><br>
+              <button style="margin-right: 50px;" class="btn btn-success" (click)="showHospitalListFlag(); "
+                [disabled]="registrationForm.invalid">
+                Add Member
+              </button>
+              <!-- <button class="btn btn-success" (click)="navigate();" [disabled]="registrationForm.invalid">
+                Submit
+              </button> -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div style="text-align: center;" class="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+    <div class="card" id="hospitalNamesCard" style="display: none;">
+      <div class="card-header">
+        <h2><strong>List of Hospitals Matching for You</strong></h2>
+      </div>
+      <div class="card-body">
+        <div class="form-group" id="hospitalsNotFoundMsg" *ngIf="bool">
+          <strong>No hospitals found for the entered details.</strong>
+        </div>
+        <div id="hospitalNames" *ngIf="bool2">
+          <form>
+            <div id="msgBody">
+            <mat-form-field style="width: 600px; margin-left: 25%;" class="example-full-width" *ngIf="bool2" appearance="outline">
+              <mat-label>Select Your Hospital</mat-label>
+              <mat-select >
+                <mat-option #hospitalName *ngFor="let hospital of hospitalList" [value]="hospital"
+                  (click)="addHospitalName(hospitalName.value)">
+                  {{ hospital }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button style="width: 120px; margin-left: 43%; margin-bottom: 15px;" mat-raised-button color="primary" (click)="addMember();">Register</button>
+            <button style="width: 120px; margin-left: 43%;" class="btn btn-danger" (click)="navigate();">
+                Finish
+              </button>
+          </div>
+          </form>
+        </div>
+      </div>

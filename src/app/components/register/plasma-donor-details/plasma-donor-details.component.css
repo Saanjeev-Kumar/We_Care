@@ -1,0 +1,70 @@
+.example-full-width {
+  width: 500px;
+}
+form{
+  text-align: center;
+}
+.row{
+  margin-left: 18%;
+}
+
+.card {
+  box-shadow: 	0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+  				0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  margin-top : 50px;
+  width: 700px;
+}
+
+.card-header {
+  padding: 20px;
+  padding-right: 110px;
+  background-color: #9FC131FF;
+  text-align: center;
+}
+
+p {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0px;
+  padding-left: 90px;
+  color: #494E65;
+  letter-spacing: 0.8px;
+}
+
+.card-body {
+   padding: 50px 0px;
+}
+
+button {
+  text-align: center;
+  letter-spacing: 2px;
+  padding: 2px 25px;
+  border-radius: 20px;
+  margin-top: 5px;
+  padding: 0px 40px;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #324191;
+}
+
+.form-group{
+  padding:2px;
+}
+#hospitalNamesCard{
+  text-align: center;
+}
+/* #hospitalNamesCard{
+  margin-top: 40px;
+  width: 400px;
+
+} */
+@media screen and (min-width: 350px) and (max-width : 1000px)
+{
+  .example-full-width {
+    width: 350px;
+  }
+}

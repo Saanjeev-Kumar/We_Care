@@ -1,0 +1,48 @@
+body {
+  font-family: "Raleway", sans-serif;
+}
+footer {
+  margin-top: 200px;
+  padding: 60px 0px;
+  background-color: darkslategray;
+}
+
+footer ul {
+  list-style: none;
+  margin: 0 auto;
+  display: inline-block;
+  padding-top: 50px;
+}
+
+footer ul li {
+  float: left;
+}
+
+footer ul li a {
+  color: #db9d16;
+  padding: 20px;
+}
+
+footer ul li a:hover {
+  color: #1070d6;
+  text-decoration: none;
+}
+
+.footer-top {
+  padding-bottom: 50px;
+}
+
+.copyright {
+  background-color: black;
+}
+
+.copyright p {
+  font-size: 12px;
+  padding: 15px 0 10px 0;
+  color: white;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}

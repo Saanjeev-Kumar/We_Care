@@ -1,0 +1,25 @@
+/* .card {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+
+} */
+
+table {
+  width: 100%;
+  margin-left: 80px;
+  margin-top: 30px;
+}
+.search {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3%;
+}
+mat-form-field{
+  width: 500px;
+}

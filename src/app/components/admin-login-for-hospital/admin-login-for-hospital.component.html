@@ -1,0 +1,175 @@
+<!-- <div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h1 class="text-center">Hospital Details</h1>
+    </div><br>
+    <div class="search">
+      <div class="mt-0">
+        <input matInput type="text" placeholder="Search hospital Name..." #filter [(ngModel)]="searchedHospitalname"/>
+        <input
+          type="text"
+          [(ngModel)]="searchedHospitalname"
+          placeholder="Search.."
+        />
+      </div>
+      <div>
+          <mat-icon >search</mat-icon>
+      </div>
+    </div>
+<div class="card-body">
+      <ul class="list-group">
+        <div class="row">
+          <div class="col-md-12">
+            <li *ngFor="let i of hospitalDetails" class="list-group-item">
+              <div class="details">
+                <div>
+                  Hospital Name: <a style="color: aqua;" [routerLink]="'/hospital-login'">{{i.hospitalName}}</a><br>
+                  Username: {{i.username}}<br>
+                  Password:{{i.password}}
+                </div>
+                <div>
+                  City: {{i.cityName}}<br>
+                State: {{i.state}}<br>
+                Pincode: {{i.pincode}}
+                </div>
+                <div>
+                  <br>
+                  <button id="deleteBtn" class="btn btn-outline-danger" (click)="onDelete(i.username)">Delete</button>
+                </div>
+               </div>
+            </li>
+          </div>
+        </div>
+      </ul>
+    </div>
+  <br>
+    <div style="float: right;">
+      <pagination-controls  id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+    </div>
+    <div class="card-body">
+      <ul class="list-group">
+        <div class="row">
+          <div class="col-md-12">
+              <div *ngFor="let i of hospitalDetails | paginate: { id: 'listing_pagination',
+              itemsPerPage: 10,
+              currentPage: page,
+              totalItems: totalRecords }">
+              <div class="details">
+                <div>
+                  Hospital Name:
+                  <a class="hsptlName" [routerLink]="'/hospital-donors-vaccination-registers'">{{
+                    i.hospitalName
+                  }}</a
+                  ><br />
+                  Username: {{ i.username }}<br />
+                  Password:{{ i.password }}
+                </div>
+                <div>
+                  City: {{ i.state }}<br />
+                  State: {{ i.district }}<br />
+                  Pincode: {{ i.postalCode }}
+                </div>
+                <div>
+                  <br />
+                  <button
+                    id="deleteBtn"
+                    class="btn btn-outline-danger"
+                    (click)="onDelete(i.username)"
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+           <div *ngIf="searchedHospitalDetail" class="details">
+              <div>
+                Hospital Name:
+                <a class="hsptlName" [routerLink]="'/hospital-donors-vaccination-registers'">{{
+                  searchedHospitalDetail.hospitalName
+                }}</a
+                ><br />
+                Username: {{ searchedHospitalDetail.username }}<br />
+                Password:{{ searchedHospitalDetail.password }}
+              </div>
+              <div>
+                City: {{ searchedHospitalDetail.cityName }}<br />
+                State: {{ searchedHospitalDetail.state }}<br />
+                Pincode: {{ searchedHospitalDetail.pincode }}
+              </div>
+              <div>
+                <br />
+                <button
+                  id="deleteBtn"
+                  class="btn btn-outline-danger"
+                  (click)="onDelete(searchedHospitalDetail.username)"
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+
+<h1 class="text-center">Hospital Details</h1>
+<div class="search">
+<mat-form-field appearance="outline">
+  <input (keyup)="applyFilter($event.target.value)" matInput  placeholder="filter" >
+</mat-form-field>
+</div>
+<div class="mat-elevation-z8 mx-5">
+<table mat-table [dataSource]="dataSource"  matSort >
+
+
+  <ng-container matColumnDef="username" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> username </th>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="password" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> password </th>
+    <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="hospitalName">
+    <th mat-header-cell *matHeaderCellDef  mat-sort-header> hospitalName </th>
+    <td mat-cell *matCellDef="let element"> {{element.hospitalName}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="state" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> state </th>
+    <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> delete </th>
+    <td mat-cell *matCellDef="let element">  <button id="deleteBtn" class="btn btn-outline-danger" (click)="onDelete(element.username)">Delete</button></td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="district" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> district </th>
+    <td mat-cell *matCellDef="let element"> {{element.district}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="postalCode">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> postalCode </th>
+    <td mat-cell *matCellDef="let element"> {{element.postalCode}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+</mat-paginator>
+</div>
+

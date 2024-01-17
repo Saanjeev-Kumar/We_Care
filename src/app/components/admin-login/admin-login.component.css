@@ -1,0 +1,40 @@
+/* .card {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+.details {
+  display: flex;
+  justify-content: space-between;
+
+} */
+
+table {
+  width: 90%;
+  margin-left: 80px;
+  margin-top: 30px;
+}
+
+.mat-button-toggle {
+  /* background-color: #bcc9e4; */
+  background-color: #0d1137;
+  color: #ffffff;
+}
+
+/* .mat-button-toggle:hover {
+  background-color: transparent;
+  color: #1100ff !important;
+} */
+
+.mat-button-toggle-checked {
+  background-color: #4d908e;
+  color: #0b0c0b !important;
+}
+
+#btn-container {
+  margin-right: 20px;
+  justify-content: flex-end;
+  display: flex;
+}
+#btnStyle{
+  margin-left: 15px;
+}

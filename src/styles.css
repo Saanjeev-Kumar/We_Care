@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.bg-secondary {
+  font-family: "Ropa Sans", sans-serif;
+}
+.footer-main {
+  position: fixed;
+  bottom: 0;
+}
+.footer-first {
+  height: 300px;
+  border-top: 2px solid #e45641;
+  border-bottom: 2px solid #e45641;
+  background: #3d687c;
+}
+.footer-second {
+  background: #212c43;
+}
+.footer-second p {
+  color: #5a6f95;
+  padding-top: 10px;
+}
+.footer-second a {
+  color: #5a6f95;
+}
+.footer-icon i {
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 10px 13px;
+  margin-right: 5px;
+}
+.footer-icon i:hover {
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-transform: scale(0.93);
+  -moz-transform: scale(0.93);
+  -ms-transform: scale(0.93);
+  transform: scale(0.93);
+}
+
+@media screen and (min-width: 320px) and (max-width: 360px) {
+  .footer-second p {
+    font-size: 15px !important;
+    margin-bottom: 2px !important;
+    text-align: center;
+  }
+  .footer-icon i {
+    padding: 7px 8px !important;
+  }
+}
+
+.bg-image{
+  background-image: url("./assets/images/concept-development-device-flat.jpg");
+  max-width: 100%;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center
+}

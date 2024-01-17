@@ -1,0 +1,166 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-item-1">
+        <img src="../../../../assets/images/smartphone.png" alt="">
+      </div>
+      <div class="card-header-item-1">
+        <h3>REGISTER USING MOBILE NUMBER</h3>
+      </div>
+    </div>
+    <div class="card-body" id="phoneBox">
+      <mat-form-field class="example-full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+91 &nbsp;</span>
+        <input [(ngModel)]="phoneNumber" type="tel" matInput placeholder="555-555-1234">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="getOTP(phoneNumber)">Get OTP</button>
+      <br>
+      <mat-form-field class="example-form-field">
+        <mat-label>Enter OTP</mat-label>
+        <input matInput type="text" [(ngModel)]="value">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" (click)="veriifyOTP();">Verify OTP</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+  <div class="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-header-item-1">
+        <img src="../../../../assets/images/smartphone.png" alt="">
+      </div>
+      <div >
+        <h3>REGISTER USING MOBILE NUMBER</h3>
+      </div>
+    </div>
+    <div class="card-body " id="phoneBox">
+      <mat-form-field class="example-full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+91 &nbsp;</span>
+        <input [(ngModel)]="phoneNumber" type="tel" matInput placeholder="555-555-1234">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary"id="otpbtn" (click)="getOTP(phoneNumber)">Get OTP</button>
+      <br>
+      <mat-form-field class="example-form-field">
+        <mat-label>Enter OTP</mat-label>
+        <input matInput type="text" [(ngModel)]="value">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+      <button mat-raised-button color="primary" id="otpbtn" (click)="veriifyOTP()">Verify OTP</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="row">
+  <div class="col-sm-10 col-md-8 offset-sm-1 offset-md-2">
+  <div class="card">
+    <div class="card-header">
+      <h1 class ="text center" style="text-align: center;">Mobile No login form</h1>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="registerPhoneForm">
+
+        <div class="form-group">
+          <div class="row">
+            <div class ="col-4">
+              <label for=" phoneNo ">PhoneNo:</label>
+            </div>
+            <div class="col-8">
+              <input type="text" name="phoneNo" class ="form-control" [formControl]="phoneNo" placeholder="What is the PhoneNo">
+              <div [hidden]="phoneNo.valid || phoneNo.untouched ">
+                <div class="alert alert-danger">
+                  <div [hidden]="!phoneNo.hasError('required')"> *phoneNo is mandatory</div>
+                  <div [hidden]="!phoneNo.hasError('pattern')">only numbers & should be 10</div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="pos">
+        <button class="btn btn-primary" (click)="getOTP(this.registerPhoneForm.value.phoneNo)" >Get OTP</button>
+        </div>
+
+        <div class="row">
+          <div class ="col-4">
+            <label for="otp ">OTP</label>
+          </div>
+          <div class="col-8">
+            <input type="text"  name="otp" class ="form-control" [formControl]="otp" placeholder="Enter  your otp">
+            <div [hidden]="otp.valid || otp.untouched ">
+              <div class="alert alert-danger">
+                <div [hidden]="!otp.hasError('required')"> *otp is mandatory</div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <div class="pos">
+        <button class="btn btn-primary"  routerLink="/plasma-receiver-data" [disabled]="registerPhoneForm.invalid"  (click)="veriifyOTP()" >verify otp</button>
+        </div>
+      </div>
+      </div>
+      </form>
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+ --> -->

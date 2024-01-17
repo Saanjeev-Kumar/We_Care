@@ -1,0 +1,51 @@
+.analytics{
+  text-align: center;
+  margin: 50px;
+  align-items: center;
+}
+
+#myChart{
+  height: 150px;
+  margin: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+#myPieChart{
+
+  /* width:auto !important;
+  height:450px !important; */
+  margin : 10px;
+  padding: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+#ChartDiv{
+  height: 500px;
+  width: 500px;
+}
+
+#guageChart{
+  margin : 10px;
+  padding: 50px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.form-select{
+  margin-left: 750px;
+  margin-bottom: 5px;
+  width: 300px;
+}
+/* .yearSelect{
+  margin-left: 400px;
+} */

@@ -1,0 +1,37 @@
+
+<!-- <div *ngIf="loggedInUser==null">
+  <button class="btn-block btn-color">Login</button>
+</div> -->
+<!-- <div>
+  <button class="btn-block btn-color" (click)="logout(); logoutHospital()">Logout</button>
+  </div> -->
+<!-- <div>
+  <button class="btn-block btn-color" (click)="logout()">Logout</button>
+</div> -->
+
+<!-- <div class="row d-flex">
+<div  class="col-md-4">
+<div id="btnGrp">
+<div class="container text-center" >
+<mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+  <mat-button-toggle [routerLink]="'plasma-donors-list'" value="Plasma-Donor-List">Plasma-Donor-List </mat-button-toggle>
+  <mat-button-toggle id="secBtn"  [routerLink]="'vaccination-registries-list'"value="Vaccination-Registries">Vaccine-Registries </mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+<div class="search">
+  <button style="margin-left: 10%;" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+</div>
+</div>
+</div> -->
+
+
+<div class="search">
+  <button style="margin-top: 10px;" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+</div>
+<div class="container text-center">
+  <mat-button-toggle-group  name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle [routerLink]="'plasma-donors-list'" value="Plasma-Donor-List">Plasma-Donor-List</mat-button-toggle>
+    <mat-button-toggle  routerLink='vaccination-registries-list' value="Vaccination-Registries">Vaccine-Registries </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<router-outlet></router-outlet>

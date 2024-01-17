@@ -1,0 +1,56 @@
+<nav class="navbar sticky-top navbar-expand-md navbar-light nav-container" id>
+  <a href="#" class="navbar-brand">Covid Care</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggleMobileMenu"
+    aria-controls="toggleMobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="toggleMobileMenu">
+
+    <ul class="navbar-nav text-center">
+      <li>
+        <a class="nav-link" id="link" routerLink="/home" routerLinkActive="active">Home</a>
+      </li>
+      <li>
+        <a class="nav-link" id="link" routerLink="/dashboard" routerLin kActive="active">Dashboard</a>
+      </li>
+      <li>
+        <a class="nav-link" id="link" routerLink="/department-login" routerLinkActive="active">Department Login</a>
+      </li>
+      <li>
+        <a class="nav-link" id="link" routerLink="/faq" routerLinkActive="active">FAQs</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+      <li>
+        <button class="nav-link btn btn-primary" id="register" routerLink="/register"
+          routerLinkActive="active">Register</button>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- <nav class="navbar navbar-expand-lg navbar-light py-4" style="background-color: #ffff;">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Register</a>
+        <a class="nav-link" routerLink="/department-login" routerLinkActive="active">Department Login</a>
+        <a class="nav-link" routerLink="/faq" routerLinkActive="active">FAQs</a>
+
+
+
+        <!-- <a class="nav-link" aria-current="page" href="#"><strong>Dashboard</strong></a>
+        <a class="nav-link" href="#"> <strong>Register</strong></a>
+        <a class="nav-link" href="#"> <strong>Department Login</strong></a>
+        <a href="#" class="nav-link"> <strong>FAQ</strong></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<br>
+<br>-->
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
